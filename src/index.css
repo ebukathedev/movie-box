@@ -1,17 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700&family=Work+Sans:wght@600&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-	a {
-		@apply font-raleway;
-	}
-}
-
-@layer components {
-	.gradient-text {
-		@apply bg-clip-text text-transparent bg-gradient-text;
-	}
-}
