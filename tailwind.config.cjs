@@ -3,9 +3,9 @@ module.exports = {
 	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 	theme: {
 		screens: {
-			sm: "480px",
+			sm: "512px",
 			md: "768px",
-			lg: "1024px",
+			lg: "1200px",
 			xl: "1440px",
 		},
 		extend: {
@@ -15,6 +15,7 @@ module.exports = {
 				rose: "#BE123C",
 				lightRose: "#BE123C1A",
 				lightGray: "#C7C7C7",
+				lightestGray: "#D1D5DB",
 			},
 			fontFamily: {
 				dmSans: ["DM Sans", "sans-serif"],
