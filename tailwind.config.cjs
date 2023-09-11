@@ -14,6 +14,7 @@ module.exports = {
 				darkGray: "#666666",
 				rose: "#BE123C",
 				lightRose: "#BE123C1A",
+				lightGray: "#C7C7C7",
 			},
 			fontFamily: {
 				dmSans: ["DM Sans", "sans-serif"],
