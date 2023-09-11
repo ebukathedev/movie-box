@@ -5,10 +5,21 @@ module.exports = {
 		screens: {
 			sm: "480px",
 			md: "768px",
-			lg: "976px",
+			lg: "1024px",
 			xl: "1440px",
 		},
-		extend: {},
+		extend: {
+			colors: {
+				gray: "#9CA3AF",
+				darkGray: "#666666",
+				rose: "#BE123C",
+				lightRose: "#BE123C1A",
+			},
+			fontFamily: {
+				dmSans: ["DM Sans", "sans-serif"],
+				poppins: ["Poppins", "sans-serif"],
+			},
+		},
 	},
 	plugins: [],
 };
