@@ -3,3 +3,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.transition-normal {
+		@apply transition-all ease-in-out duration-200;
+	}
+}
