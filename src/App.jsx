@@ -6,6 +6,8 @@ import poster from "./images/poster.png";
 import Footer from "./components/Footer";
 import Featured from "./components/Featured";
 
+const apiKey = import.meta.env.VITE_API_KEY;
+
 const App = () => {
 	return (
 		<main className="font-dmSans">
@@ -20,6 +22,7 @@ const App = () => {
 						<SignIn />
 						<SearchBar />
 					</div>
+					{apiKey}
 				</header>
 				<MovieDetails />
 			</section>
