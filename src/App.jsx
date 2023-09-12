@@ -22,7 +22,6 @@ const App = () => {
 						<SignIn />
 						<SearchBar />
 					</div>
-					{apiKey}
 				</header>
 				<MovieDetails />
 			</section>
