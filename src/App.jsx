@@ -4,17 +4,18 @@ import MovieDetails from "./components/MovieDetails";
 import SignIn from "./components/SignIn";
 import poster from "./images/poster.png";
 import Footer from "./components/Footer";
+import Featured from "./components/Featured";
 
 const App = () => {
 	return (
 		<main className="font-dmSans">
 			{/* hero */}
 			<section
-				className="h-screen bg-slate-500 bg-no-repeat bg-cover bg-center flex flex-col"
+				className="flex flex-col h-screen bg-center bg-no-repeat bg-cover bg-slate-500"
 				style={{ backgroundImage: `url(${poster})` }}
 			>
-				<header className="px-4 pt-4 md:px-8 md:pt-5 lg:pt-6">
-					<div className="container grid grid-rows-2 grid-cols-2 mx-auto gap-4 lg:flex lg:justify-between lg:gap-0 lg:items-center xl:px-12 md:gap-5">
+				<header className="px-4 pt-4 md:px-8 md:pt-5 lg:pt-6 xl:px-12">
+					<div className="container grid grid-cols-2 grid-rows-2 gap-4 mx-auto lg:flex lg:justify-between lg:gap-0 lg:items-center md:gap-5">
 						<Logo />
 						<SignIn />
 						<SearchBar />
@@ -22,6 +23,7 @@ const App = () => {
 				</header>
 				<MovieDetails />
 			</section>
+			<Featured />
 			<Footer />
 		</main>
 	);
