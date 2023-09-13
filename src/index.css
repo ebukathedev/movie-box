@@ -6,6 +6,10 @@
 
 @layer components {
 	.transition-normal {
-		@apply transition-all ease-in-out duration-200;
+		@apply transition-all duration-200 ease-in-out;
+	}
+
+	.page-link {
+		@apply transition-normal hover:text-rose;
 	}
 }

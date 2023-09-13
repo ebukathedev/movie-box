@@ -8,18 +8,18 @@ const Footer = () => {
 	const year = new Date().getFullYear();
 	const iconSize = 24;
 	return (
-		<footer className="text-darkestGray flex flex-col items-center space-y-5 py-8 font-bold lg:space-y-6 px-4 md:py-12">
+		<footer className="flex flex-col items-center px-4 py-8 space-y-5 font-bold text-darkestGray lg:space-y-6 md:py-12">
 			<ul className="flex space-x-6 md:space-x-8 lg:space-x-10">
-				<li className="transition-normal hover:text-rose">
+				<li className="page-link">
 					<FaFacebookSquare size={iconSize} />
 				</li>
-				<li className="transition-normal hover:text-rose">
+				<li className="page-link">
 					<FaInstagram size={iconSize} />
 				</li>
-				<li className="transition-normal hover:text-rose">
+				<li className="page-link">
 					<FaTwitter size={iconSize} />
 				</li>
-				<li className="transition-normal hover:text-rose">
+				<li className="page-link">
 					<FaYoutube size={iconSize} />
 				</li>
 			</ul>

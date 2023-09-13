@@ -19,6 +19,7 @@ module.exports = {
 				lightRose: "#BE123C1A",
 				lightGray: "#C7C7C7",
 				lightestGray: "#D1D5DB",
+				glassGray: "rgba(243, 244, 246, 0.50)"
 			},
 			fontFamily: {
 				dmSans: ["DM Sans", "sans-serif"],
