@@ -1,15 +1,30 @@
-import imbd from "../images/imbd.svg";
-import tomato from "../images/tomato.svg";
-import poster from "../images/movie_poster.png";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { FaHeart } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import imdb from "../images/imdb.svg";
+import tomato from "../images/tomato.svg";
 
 const MovieCard = ({ movie }) => {
 	const navigate = useNavigate();
+	const API_URL = "https://api.themoviedb.org/3";
 	const IMAGE_PATH = "https://image.tmdb.org/t/p/w342";
 
+	const fetchMovie = async () => {
+		const { data } = await axios.get(`${API_URL}/movie/${movie.id}`, {
+			params: {
+				api_key: import.meta.env.VITE_API_KEY,
+			},
+		});
+		if (data) {
+			navigate(`/movie/${data.imdb_id}`, {
+				state: { movie: data },
+			});
+		}
+	};
+
 	const showMoreDetails = () => {
-		navigate(`/movie/${movie.id}`, { state: { id: movie.id } });
+		fetchMovie();
 	};
 
 	return (
@@ -19,7 +34,7 @@ const MovieCard = ({ movie }) => {
 		>
 			<div className="relative">
 				{movie.poster_path ? (
-					<div onClick={showMoreDetails}>
+					<div>
 						<img
 							src={`${IMAGE_PATH}${movie.poster_path}`}
 							alt={movie.title}
@@ -60,7 +75,7 @@ const MovieCard = ({ movie }) => {
 			<div className="flex justify-between font-normal">
 				<div className="flex items-center space-x-3 text-sm ">
 					<div>
-						<img src={imbd} alt="IMBD logo" />
+						<img src={imdb} alt="IMDB logo" />
 					</div>
 					<span>860/100</span>
 				</div>

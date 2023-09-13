@@ -1,5 +1,5 @@
 import { AiFillPlayCircle } from "react-icons/ai";
-import imbd from "../images/imbd.svg";
+import imdb from "../images/imdb.svg";
 import tomato from "../images/tomato.svg";
 
 const MovieDetails = ({ selectedMovie }) => {
@@ -13,7 +13,7 @@ const MovieDetails = ({ selectedMovie }) => {
 					<div className="flex items-center space-x-9">
 						<div className="flex items-center space-x-3 text-sm font-normal">
 							<div>
-								<img src={imbd} alt="IMBD logo" />
+								<img src={imdb} alt="IMDB logo" />
 							</div>
 							<span>860/100</span>
 						</div>

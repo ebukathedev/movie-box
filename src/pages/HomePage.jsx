@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "../components/Logo";
 import SignIn from "../components/SignIn";
 import SearchBar from "../components/SearchBar";
