@@ -18,9 +18,7 @@ const HomePage = () => {
 	const [moviesListHeading, setMovieListHeading] = useState("Featured Movie");
 
 	const fetchMovies = async (searchKey) => {
-		const type = searchKey
-			? "search/movie"
-			: "movie/popular?language=en-US&page=1";
+		const type = searchKey ? "search/movie" : "movie/top_rated";
 
 		const {
 			data: { results },
