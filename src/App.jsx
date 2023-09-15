@@ -21,17 +21,18 @@ const App = () => {
 	useEffect(() => {
 		const load = setTimeout(() => {
 			setIsLoading(false);
-		}, 2000);
+		}, 1000);
 
 		return () => clearInterval(load);
 		console.log("effect ran");
 	}, [isLoading]);
 
-	if (isLoading) {
-		return <Loader />;
-	} else {
-		return <RouterProvider router={router} />;
-	}
+	return (
+		<>
+			{isLoading && <Loader />}
+			<RouterProvider router={router} />;
+		</>
+	);
 };
 
 export default App;

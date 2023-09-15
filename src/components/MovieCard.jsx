@@ -42,6 +42,7 @@ const MovieCard = ({ movie }) => {
 							alt={movie.title}
 							data-testid="movie-poster"
 							className="w-full"
+							onClick={showMoreDetails}
 						/>
 					</div>
 				) : (

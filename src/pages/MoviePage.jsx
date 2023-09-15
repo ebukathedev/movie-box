@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import formatNumber from "../util/formatNumber";
-import movie from "../util/placeholder.json";
+// import movie from "../util/placeholder.json";
 import MovieHeader from "../components/MovieHeader";
 import { IoIosArrowDown, IoIosList } from "react-icons/io";
 import { IoTicket } from "react-icons/io5";
@@ -16,8 +16,9 @@ import moreMovies from "../images/more-movies.png";
 const MoviePage = () => {
 	const location = useLocation();
 	const [voteCount, setVoteCount] = useState(0);
-	// const { movie } = location.state;
+	const { movie } = location.state;
 	const releaseDate = new Date(movie.release_date).getTime();
+	const IMAGE_PATH = "https://image.tmdb.org/t/p/w780";
 
 	const formatter = () => {
 		if (movie.vote_count < 1000) {
@@ -36,17 +37,22 @@ const MoviePage = () => {
 		<main className="font-poppins">
 			<section className="px-4 pt-4 md:px-8 md:pt-5 lg:pt-6 xl:px-12">
 				<div className="container mx-auto space-y-8 mb-16">
-					<div className="aspect-video md:aspect-[1198_/_449] bg-red-600 rounded-2xl"></div>
-					<div>
-						<MovieHeader
-							{...movie}
-							vote_count={voteCount}
-							release_date={releaseDate}
-						/>
-					</div>
+					<div
+						className="aspect-video md:aspect-[1198_/_449] bg-red-600 rounded-2xl"
+						style={{
+							backgroundImage: `url(${IMAGE_PATH}${movie.backdrop_path})`,
+						}}
+					></div>
+
+					<MovieHeader
+						{...movie}
+						vote_count={voteCount}
+						release_date={releaseDate}
+					/>
+
 					<div className="content text-[#666] space-y-16">
 						<div>
-							<p>{movie.overview}</p>
+							<p data-testid="movie-overview">{movie.overview}</p>
 							<ul className="mt-5 space-y-2">
 								<li>
 									<span>Director: </span>
@@ -89,7 +95,7 @@ const MoviePage = () => {
 									<span>More watch options</span>
 								</button>
 							</div>
-							<div className="relative max-w-max">
+							<div className="relative max-w-max mx-auto">
 								<img src={moreMovies} alt="more movies" />
 								<div className="absolute text-[#E8E8E8] bg-[#12121280] left-0 right-0 py-2 text-xs bottom-0 flex items-center justify-center space-x-2 font-medium rounded-b-lg">
 									<IoIosList size={20} />

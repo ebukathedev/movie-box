@@ -9,15 +9,15 @@ const MovieHeader = ({
 	vote_count,
 }) => {
 	return (
-		<div className="flex flex-col space-y-3 text-[#404040]">
+		<div className="flex flex-col space-y-3 text-[#404040] font-medium lg:flex-row lg:space-y-0 lg:items-center">
 			<div className="flex flex-wrap gap-2">
 				<h3 data-testid="movie-title">{title}</h3>
 				<span>•</span>
 				<p data-testid="movie-release-date">{release_date}</p>
 				<span>•</span>
-				<p>{runtime}m</p>
+				<p data-testid="movie-release-runtime">{runtime}m</p>
 			</div>
-			<div className="flex justify-between flex-wrap">
+			<div className="flex justify-between flex-wrap items-center gap-y-3">
 				<div className="flex space-x-2">
 					{genres.map((genre) => (
 						<div
