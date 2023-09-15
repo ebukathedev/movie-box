@@ -27,7 +27,7 @@ const MovieDetails = ({ selectedMovie }) => {
 					<p className="font-medium lg:text-lg max-w-[404px]">
 						{selectedMovie.overview}
 					</p>
-					<button className="flex items-center px-4 py-2 space-x-2 rounded-lg bg-rose">
+					<button className="btn bg-rose">
 						<AiFillPlayCircle size={20} />
 						<span className="text-sm font-bold">WATCH TRAILER</span>
 					</button>

@@ -5,7 +5,6 @@ import SearchBar from "../components/SearchBar";
 import MovieDetails from "../components/MovieDetails";
 import MovieList from "../components/MovieList";
 import Footer from "../components/Footer";
-import poster from "../images/poster.png";
 import axios from "axios";
 
 const API_URL = "https://api.themoviedb.org/3";

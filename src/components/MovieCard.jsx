@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import imdb from "../images/imdb.svg";
@@ -21,10 +21,12 @@ const MovieCard = ({ movie }) => {
 				state: { movie: data },
 			});
 		}
+		console.log(data);
 	};
 
 	const showMoreDetails = () => {
 		fetchMovie();
+		console.log(movie);
 	};
 
 	return (
