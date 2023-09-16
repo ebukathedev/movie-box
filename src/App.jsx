@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Loader from "./components/Loader";
+import { useLoading } from "./context/LoadingContext";
 import HomePage from "./pages/HomePage";
 import MoviePage from "./pages/MoviePage";
-import Loader from "./components/Loader";
 
 let router = createBrowserRouter([
 	{
@@ -16,21 +16,13 @@ let router = createBrowserRouter([
 ]);
 
 const App = () => {
-	const [isLoading, setIsLoading] = useState(true);
+	const isLoading = useLoading();
 
-	useEffect(() => {
-		const load = setTimeout(() => {
-			setIsLoading(false);
-		}, 1000);
-
-		return () => clearInterval(load);
-		console.log("effect ran");
-	}, [isLoading]);
-
+	console.log(isLoading);
 	return (
 		<>
 			{isLoading && <Loader />}
-			<RouterProvider router={router} />;
+			<RouterProvider router={router} />
 		</>
 	);
 };

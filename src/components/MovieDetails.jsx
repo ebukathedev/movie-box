@@ -1,8 +1,10 @@
 import { AiFillPlayCircle } from "react-icons/ai";
 import imdb from "../images/imdb.svg";
 import tomato from "../images/tomato.svg";
+import useFetchMovie from "../hooks/use-fetchmovie";
 
 const MovieDetails = ({ selectedMovie }) => {
+	const [fetch] = useFetchMovie(selectedMovie);
 	return (
 		<section className="relative z-10 flex items-center flex-1 px-4 pt-4 text-white md:px-8 xl:px-12">
 			<div className="container mx-auto">
@@ -27,7 +29,7 @@ const MovieDetails = ({ selectedMovie }) => {
 					<p className="font-medium lg:text-lg max-w-[404px]">
 						{selectedMovie.overview}
 					</p>
-					<button className="btn bg-rose">
+					<button className="btn bg-rose" onClick={fetch}>
 						<AiFillPlayCircle size={20} />
 						<span className="text-sm font-bold">WATCH TRAILER</span>
 					</button>

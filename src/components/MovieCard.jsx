@@ -1,32 +1,30 @@
-import axios from "axios";
 import { useState } from "react";
 import { FaHeart } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Toaster, toast } from "sonner";
+import useFetchMovie from "../hooks/use-fetchmovie";
 import imdb from "../images/imdb.svg";
 import tomato from "../images/tomato.svg";
+import { getGenreName } from "../util/genreList";
 
 const MovieCard = ({ movie }) => {
-	const navigate = useNavigate();
-	const API_URL = "https://api.themoviedb.org/3";
+	const [fetch] = useFetchMovie(movie);
+	const [favorite, setFavorite] = useState(false);
 	const IMAGE_PATH = "https://image.tmdb.org/t/p/w342";
+	const releaseDate = new Date(movie.release_date).toUTCString();
 
-	const fetchMovie = async () => {
-		const { data } = await axios.get(`${API_URL}/movie/${movie.id}`, {
-			params: {
-				api_key: import.meta.env.VITE_API_KEY,
-			},
-		});
-		if (data) {
-			navigate(`/movie/${data.imdb_id}`, {
-				state: { movie: data },
-			});
+	const addToFavorite = () => {
+		if (!favorite) {
+			setFavorite(true);
+
+			toast.success(`Added ${movie.title} to favorites`);
+		} else {
+			setFavorite(false);
+			toast(
+				<div className=" text-red-500">
+					Removed {movie.title} from favorites
+				</div>
+			);
 		}
-		console.log(data);
-	};
-
-	const showMoreDetails = () => {
-		fetchMovie();
-		console.log(movie);
 	};
 
 	return (
@@ -42,7 +40,7 @@ const MovieCard = ({ movie }) => {
 							alt={movie.title}
 							data-testid="movie-poster"
 							className="w-full"
-							onClick={showMoreDetails}
+							onClick={fetch}
 						/>
 					</div>
 				) : (
@@ -51,25 +49,28 @@ const MovieCard = ({ movie }) => {
 					</div>
 				)}
 				<div
-					className="absolute w-[30px] h-[30px] rounded-full bg-glassGray backdrop-blur-[1px] top-4 right-4 flex justify-center items-center transition-normal hover:bg-red-400/50 hover:text-red-600 text-lightestGray"
-					onClick={() => console.log("fav")}
+					className={`absolute w-[30px] h-[30px] rounded-full backdrop-blur-[1px] top-4 right-4 flex justify-center items-center transition-normal hover:bg-red-400/50 hover:text-red-600 
+					${!favorite ? "text-lightestGray bg-glassGray" : "text-red-600 bg-red-400/50"}
+					`}
+					onClick={addToFavorite}
 				>
 					<FaHeart size={16} className="mt-[1px]" />
 				</div>
+				<Toaster position="bottom-center" richColors />
 			</div>
 			<div className="flex items-center justify-between">
 				<div
 					data-testid="movie-release-date"
 					className="text-xs text-darkerLightGray"
 				>
-					{movie.release_date}
+					{releaseDate}
 				</div>
 				<div className="text-xs text-darkerLightGray">
 					USA, 2016 - Current
 				</div>
 			</div>
 			<h3
-				onClick={showMoreDetails}
+				onClick={fetch}
 				data-testid="movie-title"
 				className="text-lg text-darkestGray page-link"
 			>
@@ -90,7 +91,12 @@ const MovieCard = ({ movie }) => {
 				</div>
 			</div>
 			<div className="text-xs text-darkerLightGray">
-				Action, Adventure, Horror
+				{movie.genre_ids.map((genre, index) => (
+					<span key={genre} className="mr-2 text-sm text-gray-600">
+						{getGenreName(genre)}
+						{index !== movie.genre_ids.length - 1 ? "," : ""}
+					</span>
+				))}
 			</div>
 		</div>
 	);
