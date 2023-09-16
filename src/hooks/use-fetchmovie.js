@@ -15,7 +15,7 @@ const useFetchMovie = (movie) => {
 				},
 			});
 			if (data) {
-				navigate(`/movies/${data.imdb_id}`, {
+				navigate(`/movies/${data.id}`, {
 					state: { movie: data },
 				});
 				const load = setTimeout(() => toggleLoading(false), 1000);
