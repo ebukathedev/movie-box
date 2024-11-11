@@ -28,9 +28,9 @@ const Footer = () => {
 				<li>Privacy & Policy</li>
 				<li>Press Room</li>
 			</ul>
-			<p className="text-darkerGray text-sm lg:text-[1rem]">
+{/* 			<p className="text-darkerGray text-sm lg:text-[1rem]">
 				© {year} MovieBox by Ebuka Ejiofor.
-			</p>
+			</p> */}
 		</footer>
 	);
 };
