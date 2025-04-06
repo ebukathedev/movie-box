@@ -21,6 +21,11 @@ MovieBox is a modern, responsive movie discovery web app that lets users browse,
 
 ---
 
+## 📸 Screenshots
+![Home](https://res.cloudinary.com/drtebxtdt/image/upload/v1695453751/my%20portfolio/projects/moviebox.png) 
+
+---
+
 ## ✨ Features
 
 - 🔍 Browse and explore popular/trending movies
@@ -58,3 +63,9 @@ git clone https://github.com/ebukathedev/movie-box.git
 cd movie-box
 npm install
 npm run dev
+```
+--- 
+
+## 🧾 License
+
+This project is open source and available under the [MIT License](LICENSE).
