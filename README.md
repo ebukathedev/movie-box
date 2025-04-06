@@ -13,7 +13,7 @@ MovieBox is a modern, responsive movie discovery web app that lets users browse,
 
 ## 🛠️ Tech Stack
 
-- **Frontend Framework:** [React.js](https://nextjs.org/)
+- **Frontend Framework:** [React.js](https://react.dev/)
 - **Language:** JavaScript
 - **Styling:** Tailwind CSS
 - **API:** TMDb API
